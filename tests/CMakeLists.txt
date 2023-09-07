@@ -1,16 +1,18 @@
-# Specify the minimum version for CMake
-cmake_minimum_required(VERSION 3.5)
 
-# Project's name
-project(cudaPhysicsSimTests)
-
-# Set the C++ standard
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+# tests/CMakeLists.txt
 
 # Add the Google Test's gtest library
 add_subdirectory(/usr/src/gtest ${CMAKE_CURRENT_BINARY_DIR}/gtest)
 
+# Include directories (adjust the path as necessary)
+include_directories("../src/core")
+include_directories("../src/models")
+
 # Add the executable for tests
-add_executable(test_executable test_main.cpp)
-target_link_libraries(test_executable gtest gtest_main)
+add_executable(test_executable 
+    test_main.cpp 
+    test_free_fall_simulation.cpp
+)
+
+# Link the necessary libraries 
+target_link_libraries(test_executable gtest gtest_main cudaPhysicsSimLib)

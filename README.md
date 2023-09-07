@@ -14,9 +14,15 @@ The project follows a modular structure:
 ```
 /cudaPhysicsSim
 |-- /src
+|   |-- CMakeLists.txt
 |   |-- /core
+|   |   |-- simulation.h
 |   |-- /models
+|   |   |-- free_fall_simulation.cpp
+|   |   |-- free_fall_simulation.h
 |   |-- /utils
+|   |   |-- logger.cpp
+|   |   |-- logger.h
 |-- /tests
 |   |-- CMakeLists.txt
 |   |-- test_main.cpp
